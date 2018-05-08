@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Lead Grid 1.0</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div id="reactReport" class="react-report"
+     data-settings-composition='{
+    "groups": {
+        "affiliate_id": {
+            "title": "Вебмастер",
+            "useDictionary": true,
+            "format": "link",
+            "titleTemplate": "{id}, {name}",
+            "linkTemplate": "\/webmasters\/default\/view\/{id}"
+        },
+        "offer_id": {
+            "title": "Оффер",
+            "useDictionary": true,
+            "format": "link",
+            "titleTemplate": "{id}, {name} [{status}]",
+            "linkTemplate": "\/offers\/default\/view\/{id}"
+        },
+        "current_affiliate_employee_id": {
+            "title": "Менеджер вебмастера (текущий)",
+            "useDictionary": true,
+            "format": "link",
+            "titleTemplate": "{id}, {last_name} {first_name} [{status}]",
+            "linkTemplate": "\/employees\/default\/view\/{id}"
+        },
+        "affiliate_employee_id": {
+            "title": "Менеджер вебмастера (история)",
+            "useDictionary": true,
+            "format": "link",
+            "titleTemplate": "{id}, {last_name} {first_name} [{status}]",
+            "linkTemplate": "\/employees\/default\/view\/{id}"
+        },
+        "offer_employee_id": {
+            "title": "Менеджер оффера",
+            "useDictionary": true,
+            "format": "link",
+            "titleTemplate": "{id}, {last_name} {first_name} [{status}]",
+            "linkTemplate": "\/employees\/default\/view\/{id}"
+        },
+        "platform_id": {
+            "title": "Площадка",
+            "useDictionary": true,
+            "format": "link",
+            "titleTemplate": "{id}, {name}",
+            "linkTemplate": "\/webmasters\/default\/view\/{id}"
+        },
+        "goal": {
+            "title": "Цель оффера",
+            "useDictionary": true,
+            "format": "scalar",
+            "titleTemplate": "{id}, {name}"
+        },
+        "file_id": {
+            "title": "Рекламный материал",
+            "useDictionary": true,
+            "format": "scalar",
+            "titleTemplate": " {id}, {name}"
+        },
+        "source": {
+            "title": "Источник",
+            "useDictionary": false
+        },
+        "aff_sub1": {
+            "title": "SubID 1",
+            "useDictionary": false
+        },
+        "aff_sub2": {
+            "title": "SubID 2",
+            "useDictionary": false
+        },
+        "aff_sub3": {
+            "title": "SubID 3",
+            "useDictionary": false
+        },
+        "aff_sub4": {
+            "title": "SubID 4",
+            "useDictionary": false
+        },
+        "aff_sub5": {
+            "title": "SubID 5",
+            "useDictionary": false
+        },
+        "sys_sub1": {
+            "title": "SysSub 1",
+            "useDictionary": false
+        },
+        "sys_sub2": {
+            "title": "SysSub 2",
+            "useDictionary": false
+        },
+        "sys_sub3": {
+            "title": "SysSub 3",
+            "useDictionary": false
+        },
+        "utm_medium": {
+            "title": "Вебмастер: utm_medium",
+            "useDictionary": false
+        },
+        "utm_source": {
+            "title": "Вебмастер: utm_source",
+            "useDictionary": false
+        },
+        "utm_campaign": {
+            "title": "Вебмастер: utm_campaign",
+            "useDictionary": false
+        },
+        "utm_term": {
+            "title": "Вебмастер: utm_term",
+            "useDictionary": false
+        },
+        "utm_content": {
+            "title": "Вебмастер: utm_content",
+            "useDictionary": false
+        },
+        "utm_referrer": {
+            "title": "Вебмастер: utm_referrer",
+            "useDictionary": false
+        },
+        "click_id": {
+            "title": "Вебмастер: click_id",
+            "useDictionary": false
+        },
+        "browser_device": {
+            "title": "Тип устройства",
+            "useDictionary": true,
+            "format": "scalar",
+            "titleTemplate": "{name}"
+        },
+        "browser_app": {
+            "title": "Браузер",
+            "useDictionary": true,
+            "format": "scalar",
+            "titleTemplate": "{name}"
+        },
+        "browser_format": {
+            "title": "Формат браузера",
+            "useDictionary": true,
+            "format": "scalar",
+            "titleTemplate": "{name}"
+        },
+        "os": {
+            "title": "Операционная система",
+            "useDictionary": true,
+            "format": "scalar",
+            "titleTemplate": "{name}"
+        },
+        "domain": {
+            "title": "Домен",
+            "useDictionary": false
+        },
+        "search_engine": {
+            "title": "Поисковая система",
+            "useDictionary": false
+        },
+        "keyword": {
+            "title": "Поисковый запрос",
+            "useDictionary": false
+        },
+        "ip_addr": {
+            "title": "IP Адрес",
+            "useDictionary": false
+        },
+        "http_host": {
+            "title": "Хост",
+            "useDictionary": false
+        },
+        "event_http_host": {
+            "title": "Хост источника",
+            "useDictionary": false
+        },
+        "referrer": {
+            "title": "Реферер",
+            "useDictionary": false
+        },
+        "conversion_source": {
+            "title": "Источник конверсии",
+            "useDictionary": true,
+            "format": "scalar",
+            "titleTemplate": "{name}"
+        },
+        "protocol_type": {
+            "title": "Протокол оффера",
+            "useDictionary": true,
+            "format": "scalar",
+            "titleTemplate": "{name}"
+        }
+    },
+    "metrics": {
+        "period_max": "Максимум за период",
+        "period_min": "Минимум за период",
+        "period_average": "Среднее за период",
+        "period_total": "Всего за период",
+        "period_previous_total": "Всего за предыдущий период",
+        "period_dynamic": "Динамика за период",
+        "unique_impressions_period_max": "Уникальные показы [Максимум за период]",
+        "total_impressions_period_max": "Показы [Максимум за период]",
+        "unique_clicks_period_max": "Уникальные клики [Максимум за период]",
+        "total_clicks_period_max": "Клики [Максимум за период]",
+        "unique_conversion_period_max": "Уникальные конверсии [Максимум за период]",
+        "total_conversion_period_max": "Конверсии [Максимум за период]",
+        "approved_conversion_period_max": "Одобреные конверсии [Максимум за период]",
+        "pending_conversion_period_max": "Конверсии в ожидании [Максимум за период]",
+        "rejected_conversion_period_max": "Отклоненные конверсии [Максимум за период]",
+        "ctr_period_max": "CTR [Максимум за период]",
+        "cr_period_max": "CR [Максимум за период]",
+        "ar_period_max": "AR [Максимум за период]",
+        "epc_period_max": "EPC [Максимум за период]",
+        "epl_period_max": "EPL [Максимум за период]",
+        "epg_period_max": "EPG [Максимум за период]",
+        "leads_period_max": "Анкеты [Максимум за период]",
+        "cra_period_max": "CRA [Максимум за период]",
+        "dr_period_max": "DR [Максимум за период]",
+        "aar_period_max": "AAR [Максимум за период]",
+        "epia_period_max": "EPIA [Максимум за период]",
+        "epa_period_max": "EPA [Максимум за период]",
+        "approved_payout_period_max": "Доход вебмастера [Максимум за период]",
+        "earnings_period_max": "Прибыль [Максимум за период]",
+        "revenue_period_max": "Доход [Максимум за период]",
+        "unique_impressions_period_min": "Уникальные показы [Минимум за период]",
+        "total_impressions_period_min": "Показы [Минимум за период]",
+        "unique_clicks_period_min": "Уникальные клики [Минимум за период]",
+        "total_clicks_period_min": "Клики [Минимум за период]",
+        "unique_conversion_period_min": "Уникальные конверсии [Минимум за период]",
+        "total_conversion_period_min": "Конверсии [Минимум за период]",
+        "approved_conversion_period_min": "Одобреные конверсии [Минимум за период]",
+        "pending_conversion_period_min": "Конверсии в ожидании [Минимум за период]",
+        "rejected_conversion_period_min": "Отклоненные конверсии [Минимум за период]",
+        "ctr_period_min": "CTR [Минимум за период]",
+        "cr_period_min": "CR [Минимум за период]",
+        "ar_period_min": "AR [Минимум за период]",
+        "epc_period_min": "EPC [Минимум за период]",
+        "epl_period_min": "EPL [Минимум за период]",
+        "epg_period_min": "EPG [Минимум за период]",
+        "leads_period_min": "Анкеты [Минимум за период]",
+        "cra_period_min": "CRA [Минимум за период]",
+        "dr_period_min": "DR [Минимум за период]",
+        "aar_period_min": "AAR [Минимум за период]",
+        "epia_period_min": "EPIA [Минимум за период]",
+        "epa_period_min": "EPA [Минимум за период]",
+        "approved_payout_period_min": "Доход вебмастера [Минимум за период]",
+        "earnings_period_min": "Прибыль [Минимум за период]",
+        "revenue_period_min": "Доход [Минимум за период]",
+        "unique_impressions_period_average": "Уникальные показы [Среднее за период]",
+        "total_impressions_period_average": "Показы [Среднее за период]",
+        "unique_clicks_period_average": "Уникальные клики [Среднее за период]",
+        "total_clicks_period_average": "Клики [Среднее за период]",
+        "unique_conversion_period_average": "Уникальные конверсии [Среднее за период]",
+        "total_conversion_period_average": "Конверсии [Среднее за период]",
+        "approved_conversion_period_average": "Одобреные конверсии [Среднее за период]",
+        "pending_conversion_period_average": "Конверсии в ожидании [Среднее за период]",
+        "rejected_conversion_period_average": "Отклоненные конверсии [Среднее за период]",
+        "ctr_period_average": "CTR [Среднее за период]",
+        "cr_period_average": "CR [Среднее за период]",
+        "ar_period_average": "AR [Среднее за период]",
+        "epc_period_average": "EPC [Среднее за период]",
+        "epl_period_average": "EPL [Среднее за период]",
+        "epg_period_average": "EPG [Среднее за период]",
+        "leads_period_average": "Анкеты [Среднее за период]",
+        "cra_period_average": "CRA [Среднее за период]",
+        "dr_period_average": "DR [Среднее за период]",
+        "aar_period_average": "AAR [Среднее за период]",
+        "epia_period_average": "EPIA [Среднее за период]",
+        "epa_period_average": "EPA [Среднее за период]",
+        "approved_payout_period_average": "Доход вебмастера [Среднее за период]",
+        "earnings_period_average": "Прибыль [Среднее за период]",
+        "revenue_period_average": "Доход [Среднее за период]",
+        "unique_impressions_period_total": "Уникальные показы [Всего за период]",
+        "total_impressions_period_total": "Показы [Всего за период]",
+        "unique_clicks_period_total": "Уникальные клики [Всего за период]",
+        "total_clicks_period_total": "Клики [Всего за период]",
+        "unique_conversion_period_total": "Уникальные конверсии [Всего за период]",
+        "total_conversion_period_total": "Конверсии [Всего за период]",
+        "approved_conversion_period_total": "Одобреные конверсии [Всего за период]",
+        "pending_conversion_period_total": "Конверсии в ожидании [Всего за период]",
+        "rejected_conversion_period_total": "Отклоненные конверсии [Всего за период]",
+        "ctr_period_total": "CTR [Всего за период]",
+        "cr_period_total": "CR [Всего за период]",
+        "ar_period_total": "AR [Всего за период]",
+        "epc_period_total": "EPC [Всего за период]",
+        "epl_period_total": "EPL [Всего за период]",
+        "epg_period_total": "EPG [Всего за период]",
+        "leads_period_total": "Анкеты [Всего за период]",
+        "cra_period_total": "CRA [Всего за период]",
+        "dr_period_total": "DR [Всего за период]",
+        "aar_period_total": "AAR [Всего за период]",
+        "epia_period_total": "EPIA [Всего за период]",
+        "epa_period_total": "EPA [Всего за период]",
+        "approved_payout_period_total": "Доход вебмастера [Всего за период]",
+        "earnings_period_total": "Прибыль [Всего за период]",
+        "revenue_period_total": "Доход [Всего за период]",
+        "unique_impressions_period_previous_total": "Уникальные показы [Всего за предыдущий период]",
+        "total_impressions_period_previous_total": "Показы [Всего за предыдущий период]",
+        "unique_clicks_period_previous_total": "Уникальные клики [Всего за предыдущий период]",
+        "total_clicks_period_previous_total": "Клики [Всего за предыдущий период]",
+        "unique_conversion_period_previous_total": "Уникальные конверсии [Всего за предыдущий период]",
+        "total_conversion_period_previous_total": "Конверсии [Всего за предыдущий период]",
+        "approved_conversion_period_previous_total": "Одобреные конверсии [Всего за предыдущий период]",
+        "pending_conversion_period_previous_total": "Конверсии в ожидании [Всего за предыдущий период]",
+        "rejected_conversion_period_previous_total": "Отклоненные конверсии [Всего за предыдущий период]",
+        "ctr_period_previous_total": "CTR [Всего за предыдущий период]",
+        "cr_period_previous_total": "CR [Всего за предыдущий период]",
+        "ar_period_previous_total": "AR [Всего за предыдущий период]",
+        "epc_period_previous_total": "EPC [Всего за предыдущий период]",
+        "epl_period_previous_total": "EPL [Всего за предыдущий период]",
+        "epg_period_previous_total": "EPG [Всего за предыдущий период]",
+        "leads_period_previous_total": "Анкеты [Всего за предыдущий период]",
+        "cra_period_previous_total": "CRA [Всего за предыдущий период]",
+        "dr_period_previous_total": "DR [Всего за предыдущий период]",
+        "aar_period_previous_total": "AAR [Всего за предыдущий период]",
+        "epia_period_previous_total": "EPIA [Всего за предыдущий период]",
+        "epa_period_previous_total": "EPA [Всего за предыдущий период]",
+        "approved_payout_period_previous_total": "Доход вебмастера [Всего за предыдущий период]",
+        "earnings_period_previous_total": "Прибыль [Всего за предыдущий период]",
+        "revenue_period_previous_total": "Доход [Всего за предыдущий период]",
+        "unique_impressions_period_dynamic": "Уникальные показы [Динамика за период]",
+        "total_impressions_period_dynamic": "Показы [Динамика за период]",
+        "unique_clicks_period_dynamic": "Уникальные клики [Динамика за период]",
+        "total_clicks_period_dynamic": "Клики [Динамика за период]",
+        "unique_conversion_period_dynamic": "Уникальные конверсии [Динамика за период]",
+        "total_conversion_period_dynamic": "Конверсии [Динамика за период]",
+        "approved_conversion_period_dynamic": "Одобреные конверсии [Динамика за период]",
+        "pending_conversion_period_dynamic": "Конверсии в ожидании [Динамика за период]",
+        "rejected_conversion_period_dynamic": "Отклоненные конверсии [Динамика за период]",
+        "ctr_period_dynamic": "CTR [Динамика за период]",
+        "cr_period_dynamic": "CR [Динамика за период]",
+        "ar_period_dynamic": "AR [Динамика за период]",
+        "epc_period_dynamic": "EPC [Динамика за период]",
+        "epl_period_dynamic": "EPL [Динамика за период]",
+        "epg_period_dynamic": "EPG [Динамика за период]",
+        "leads_period_dynamic": "Анкеты [Динамика за период]",
+        "cra_period_dynamic": "CRA [Динамика за период]",
+        "dr_period_dynamic": "DR [Динамика за период]",
+        "aar_period_dynamic": "AAR [Динамика за период]",
+        "epia_period_dynamic": "EPIA [Динамика за период]",
+        "epa_period_dynamic": "EPA [Динамика за период]",
+        "approved_payout_period_dynamic": "Доход вебмастера [Динамика за период]",
+        "earnings_period_dynamic": "Прибыль [Динамика за период]",
+        "revenue_period_dynamic": "Доход [Динамика за период]"
+    },
+    "stats": {
+        "unique_impressions": "Уникальные показы",
+        "total_impressions": "Показы",
+        "unique_clicks": "Уникальные клики",
+        "total_clicks": "Клики",
+        "unique_conversion": "Уникальные конверсии",
+        "total_conversion": "Конверсии",
+        "approved_conversion": "Одобреные конверсии",
+        "pending_conversion": "Конверсии в ожидании",
+        "rejected_conversion": "Отклоненные конверсии",
+        "ctr": "CTR",
+        "cr": "CR",
+        "ar": "AR",
+        "epc": "EPC",
+        "epl": "EPL",
+        "epg": "EPG",
+        "leads": "Анкеты",
+        "cra": "CRA",
+        "dr": "DR",
+        "aar": "AAR",
+        "epia": "EPIA",
+        "epa": "EPA",
+        "approved_payout": "Доход вебмастера",
+        "earnings": "Прибыль",
+        "revenue": "Доход"
+    },
+    "filters": {
+        "conversion_source": {
+            "type": "select",
+            "title": "Источник конверсии",
+            "options": {
+                "1": "API",
+                "2": "JSФорма",
+                "3": "Файл",
+                "4": "Посадка",
+                "5": "Трекер"
+            }
+        },
+        "affiliate": {
+            "type": "remoteSelect",
+            "title": "Вебмастер",
+            "options": {
+                "width": "100%",
+                "placeholder": "Вебмастер",
+                "minimumInputLength": 0,
+                "allowClear": true,
+                "url": "\/reports\/default\/affiliate"
+            }
+        },
+        "offer": {
+            "type": "remoteSelect",
+            "title": "Оффер",
+            "options": {
+                "placeholder": "Оффер",
+                "minimumInputLength": 0,
+                "allowClear": true,
+                "url": "\/reports\/default\/offer"
+            }
+        },
+        "platform": {
+            "type": "remoteSelect",
+            "title": "Площадка",
+            "options": {
+                "placeholder": "Площадка",
+                "minimumInputLength": 1,
+                "allowClear": true,
+                "url": "\/reports\/summary\/platforms"
+            }
+        },
+        "affiliate_group": {
+            "type": "select",
+            "title": "Группа вебмастера",
+            "options": {
+                "1": "Sandbox",
+                "2": "Master",
+                "3": "Gold",
+                "4": "Platinum",
+                "5": "AffiliateNetwork",
+                "6": "System"
+            }
+        },
+        "goal": {
+            "type": "remoteSelect",
+            "title": "Цель",
+            "options": {
+                "placeholder": "Цель",
+                "minimumInputLength": 0,
+                "allowClear": true,
+                "url": "\/reports\/default\/goal"
+            }
+        },
+        "affiliate_employee_history": {
+            "type": "remoteSelect",
+            "title": "Менеджер вебмастера (история)",
+            "options": {
+                "placeholder": "Менеджер вебмастера (история)",
+                "minimumInputLength": 0,
+                "allowClear": true,
+                "url": "\/reports\/default\/employee"
+            }
+        },
+        "affiliate_employee_current": {
+            "type": "remoteSelect",
+            "title": "Менеджер вебмастера (текущий)",
+            "options": {
+                "placeholder": "Менеджер вебмастера (текущий)",
+                "minimumInputLength": 0,
+                "allowClear": true,
+                "url": "\/reports\/default\/employee"
+            }
+        },
+        "offer_employee_history": {
+            "type": "remoteSelect",
+            "title": "Менеджер оффера",
+            "options": {
+                "placeholder": "Менеджер оффера",
+                "minimumInputLength": 0,
+                "allowClear": true,
+                "url": "\/reports\/default\/employee"
+            }
+        },
+        "browser_device": {
+            "type": "select",
+            "title": "Тип устройства",
+            "options": [
+                "не определен",
+                "Настольные компьютеры",
+                "Мобильные устройства",
+                "Планшеты"
+            ]
+        },
+        "browser_app": {
+            "type": "select",
+            "title": "Браузер",
+            "options": [
+                "не определен",
+                "Internet Explorer",
+                "Firefox",
+                "Chrome",
+                "Safari",
+                "Opera",
+                "Прочие браузеры",
+                "WML-браузеры"
+            ]
+        },
+        "browser_format": {
+            "type": "select",
+            "title": "Формат браузера",
+            "options": [
+                "не определен",
+                "Настольный компьютер",
+                "Полностью веб-собместимый",
+                "Частично веб-совместимый",
+                "WAP"
+            ]
+        },
+        "os": {
+            "type": "select",
+            "title": "Операционная система",
+            "options": [
+                "Linux",
+                "Windows",
+                "iOS",
+                "Mac OS",
+                "Android",
+                "Другое"
+            ]
+        },
+        "search_engine": {
+            "type": "select",
+            "title": "Поисковая система",
+            "options": [
+                "Нет",
+                "Яндекс",
+                "Google",
+                "Mail.ru",
+                "Rambler",
+                "AllTheWeb",
+                "AOL",
+                "Ask",
+                "Bing",
+                "Yahoo",
+                "Baidu"
+            ]
+        },
+        "source": {
+            "type": "keyword",
+            "title": "Источник"
+        },
+        "aff_sub1": {
+            "type": "keyword",
+            "title": "SubID 1"
+        },
+        "aff_sub2": {
+            "type": "keyword",
+            "title": "SubID 2"
+        },
+        "aff_sub3": {
+            "type": "keyword",
+            "title": "SubID 3"
+        },
+        "aff_sub4": {
+            "type": "keyword",
+            "title": "SubID 4"
+        },
+        "aff_sub5": {
+            "type": "keyword",
+            "title": "SubID 5"
+        },
+        "sys_sub1": {
+            "type": "keyword",
+            "title": "SysSub 1"
+        },
+        "sys_sub2": {
+            "type": "keyword",
+            "title": "SysSub 2"
+        },
+        "sys_sub3": {
+            "type": "keyword",
+            "title": "SysSub 3"
+        },
+        "domain": {
+            "type": "keyword",
+            "title": "Домен"
+        },
+        "ip": {
+            "type": "keyword",
+            "title": "IP адрес"
+        },
+        "affiliate_utm_medium": {
+            "type": "keyword",
+            "title": "Вебмастер: utm_medium"
+        },
+        "affiliate_utm_source": {
+            "type": "keyword",
+            "title": "Вебмастер: utm_source"
+        },
+        "affiliate_utm_campaign": {
+            "type": "keyword",
+            "title": "Вебмастер: utm_campaign"
+        },
+        "affiliate_utm_term": {
+            "type": "keyword",
+            "title": "Вебмастер: utm_term"
+        },
+        "affiliate_utm_content": {
+            "type": "keyword",
+            "title": "Вебмастер: utm_content"
+        },
+        "affiliate_utm_referrer": {
+            "type": "keyword",
+            "title": "Вебмастер: utm_referrer"
+        },
+        "affiliate_click_id": {
+            "type": "keyword",
+            "title": "Вебмастер: click_id"
+        },
+        "http_host": {
+            "type": "keyword",
+            "title": "Хост"
+        },
+        "event_http_host": {
+            "type": "keyword",
+            "title": "Хост источника"
+        },
+        "protocol_type": {
+            "type": "select",
+            "title": "Протокол оффера",
+            "options": {
+                "1": "HTTP для IFRAME",
+                "2": "HTTPS для IFRAME",
+                "3": "HTTP для IMG",
+                "4": "HTTPS для IMG",
+                "5": "Сервер Postback",
+                "6": "JS Script Pixel"
+            }
+        }
+    },
+    "conditions": {
+        "compareRules": {
+            "not_equal_to": "<>",
+            "equal_to": "=",
+            "less_than": "<",
+            "less_than_or_equal_to": "<=",
+            "greater_than": ">",
+            "greater_than_or_equal_to": ">="
+        },
+        "columns": {
+            "period_dynamic": "Динамика за период",
+            "period_total": "Всего за период",
+            "period_previous_total": "Всего за предыдущий период",
+            "period_average": "Среднее за период"
+        }
+    },
+    "dateTime": {
+        "timeZones": {
+            "Pacific\/Midway": "Мидуэй, Самоа (GMT -11:00)",
+            "America\/Adak": "Гавайи-Алеутского (GMT -9:00)",
+            "Etc\/GMT+10": "Гавайи (GMT -10:00)",
+            "Pacific\/Marquesas": "Маркизских островов (GMT -9:50)",
+            "Pacific\/Gambier": "Gambier острова (GMT -9:00)",
+            "America\/Anchorage": "Аляска (GMT -8:00)",
+            "America\/Ensenada": "Тихуана, Нижняя Калифорния (GMT -7:00)",
+            "Etc\/GMT+8": "Питкэрн (GMT -8:00)",
+            "America\/Los_Angeles": "По тихоокеанскому времени (GMT -7:00)",
+            "America\/Denver": "Горное время (GMT -6:00)",
+            "America\/Chihuahua": "Чиуауа, Ла-Пас, Мазатлан (GMT -7:00)",
+            "America\/Dawson_Creek": "Аризона (GMT -7:00)",
+            "America\/Belize": "Саскачеван, Центральная Америка (GMT -6:00)",
+            "America\/Cancun": "Гвадалахара, Мехико, Монтеррей (GMT -5:00)",
+            "Chile\/EasterIsland": "Остров Пасхи (GMT -5:00)",
+            "America\/Chicago": "Центральное время (GMT -5:00)",
+            "America\/New_York": "По восточному поясному времени (GMT -4:00)",
+            "America\/Havana": "Куба (GMT -4:00)",
+            "America\/Bogota": "Богота, Лима, Кито, Риу-Бранку (GMT -5:00)",
+            "America\/Caracas": "Каракас (GMT -4:00)",
+            "America\/Santiago": "Сантьяго (GMT -3:00)",
+            "America\/La_Paz": "Ла-Пас (GMT -4:00)",
+            "Atlantic\/Stanley": "Faukland острова (GMT -3:00)",
+            "America\/Campo_Grande": "Бразилия (GMT -4:00)",
+            "America\/Goose_Bay": "Атлантическое время (GMT -3:00)",
+            "America\/Glace_Bay": "Атлантическое время (GMT -3:00)",
+            "America\/St_Johns": "Ньюфаундленд (GMT -2:50)",
+            "America\/Araguaina": "UTC-3 (GMT -3:00)",
+            "America\/Montevideo": "Монтевидео (GMT -3:00)",
+            "America\/Miquelon": "Микелон, Сен-Пьер (GMT -2:00)",
+            "America\/Godthab": "Гренландия (GMT -2:00)",
+            "America\/Argentina\/Buenos_Aires": "Буэнос-Айрес (GMT -3:00)",
+            "America\/Sao_Paulo": "Бразилиа (GMT -3:00)",
+            "America\/Noronha": "Срединно-Атлантического (GMT -2:00)",
+            "Atlantic\/Cape_Verde": "Кабо-Верде. (GMT -1:00)",
+            "Atlantic\/Azores": "Азорские острова (GMT 0:00)",
+            "Europe\/Belfast": "Greenwich Mean Time: Белфаст (GMT +1:00)",
+            "Europe\/Dublin": "Среднее время по Гринвичу: Дублин (GMT +1:00)",
+            "Europe\/Lisbon": "Среднее время по Гринвичу: Лиссабон (GMT +1:00)",
+            "Europe\/London": "Среднее время по Гринвичу: Лондон (GMT +1:00)",
+            "Africa\/Abidjan": "Монровия, Рейкьявик (GMT 0:00)",
+            "Europe\/Amsterdam": "Амстердам, Берлин, Берн, Рим, Стокгольм, Вена (GMT +2:00)",
+            "Europe\/Belgrade": "Белград, Братислава, Будапешт, Любляна, Прага (GMT +2:00)",
+            "Europe\/Brussels": "Брюссель, Копенгаген, Мадрид, Париж (GMT +2:00)",
+            "Africa\/Algiers": "Западной и Центральной Африки (GMT +1:00)",
+            "Africa\/Windhoek": "Виндхук (GMT +2:00)",
+            "Asia\/Beirut": "Бейрут (GMT +3:00)",
+            "Africa\/Cairo": "Каир (GMT +2:00)",
+            "Asia\/Gaza": "Сектор Газа (GMT +3:00)",
+            "Africa\/Blantyre": "Хараре, Претория (GMT +2:00)",
+            "Asia\/Jerusalem": "Иерусалим (GMT +3:00)",
+            "Europe\/Minsk": "Минск (GMT +3:00)",
+            "Asia\/Damascus": "Сирия (GMT +3:00)",
+            "Europe\/Moscow": "Москва, Санкт-Петербург, Волгоград (GMT +3:00)",
+            "Africa\/Addis_Ababa": "Найроби (GMT +3:00)",
+            "Asia\/Tehran": "Тегеран (GMT +4:50)",
+            "Asia\/Dubai": "Абу-Даби, Маскат (GMT +4:00)",
+            "Asia\/Yerevan": "Ереван (GMT +4:00)",
+            "Asia\/Kabul": "Кабул (GMT +4:50)",
+            "Asia\/Yekaterinburg": "Екатеринбург (GMT +5:00)",
+            "Asia\/Tashkent": "Ташкент (GMT +5:00)",
+            "Asia\/Kolkata": "Ченнай, Калькутта, Мумбаи, Нью-Дели (GMT +5:50)",
+            "Asia\/Katmandu": "Катманду (GMT +5:75)",
+            "Asia\/Dhaka": "Астана, Дакка (GMT +6:00)",
+            "Asia\/Novosibirsk": "Новосибирск (GMT +7:00)",
+            "Asia\/Rangoon": "Янгон (GMT +6:50)",
+            "Asia\/Bangkok": "Бангкок, Ханой, Джакарта (GMT +7:00)",
+            "Asia\/Krasnoyarsk": "Красноярск (GMT +7:00)",
+            "Asia\/Hong_Kong": "Пекин, Чунцин, Гонконг, Урумчи (GMT +8:00)",
+            "Asia\/Irkutsk": "Иркутск, Улан-Батор (GMT +8:00)",
+            "Australia\/Perth": "Перт (GMT +8:00)",
+            "Australia\/Eucla": "Eucla (GMT +8:75)",
+            "Asia\/Tokyo": "Осака, Саппоро, Токио (GMT +9:00)",
+            "Asia\/Seoul": "Сеул (GMT +9:00)",
+            "Asia\/Yakutsk": "Якутск (GMT +9:00)",
+            "Australia\/Adelaide": "Аделаида (GMT +10:50)",
+            "Australia\/Darwin": "Дарвин (GMT +9:50)",
+            "Australia\/Brisbane": "Брисбен (GMT +10:00)",
+            "Australia\/Hobart": "Хобарт (GMT +11:00)",
+            "Asia\/Vladivostok": "Владивосток (GMT +10:00)",
+            "Australia\/Lord_Howe": "Остров Лорд-Хау (GMT +11:00)",
+            "Etc\/GMT-11": "Соломоновы острова., Новая Каледония (GMT +11:00)",
+            "Asia\/Magadan": "Магадан (GMT +11:00)",
+            "Pacific\/Norfolk": "Остров Норфолк (GMT +11:00)",
+            "Asia\/Anadyr": "Анадырь, Камчатка (GMT +12:00)",
+            "Pacific\/Auckland": "Окленд, Веллингтон (GMT +13:00)",
+            "Etc\/GMT-12": "Фиджи, Камчатка, Маршалловы о-ва. (GMT +12:00)",
+            "Pacific\/Chatham": "Острова Чатем (GMT +13:75)",
+            "Pacific\/Tongatapu": "Нукуалофа (GMT +13:00)",
+            "Pacific\/Kiritimati": "Остров Рождества (GMT +14:00)",
+            "Asia\/Istanbul": "Стамбул (GMT +3:00)",
+            "GMT": "Greenwich Mean Time (GMT 0:00)",
+            "Australia\/Sydney": "Сидней (GMT +11:00)",
+            "Europe\/Athens": "Афины (GMT +3:00)",
+            "Europe\/Riga": "Riga (GMT +3:00)"
+        },
+        "intervals": {
+            "today": "За сегодня",
+            "yesterday": "За вчера",
+            "last_7_days": "За последние 7 дней",
+            "last_30_days": "За последние 30 дней",
+            "current_month": "За текущий месяц",
+            "previous_month": "За предыдущий месяц"
+        },
+        "groupsBy": {
+            "hour": "По часам",
+            "day": "По дням",
+            "week": "По неделям",
+            "month": "По месяцам",
+            "year": "По годам"
+        }
+    },
+    "availableSortOrder": {
+        "columns": [
+            "period_previous_total",
+            "period_total",
+            "period_dynamic",
+            "affiliate_id",
+            "offer_id",
+            "current_affiliate_employee_id",
+            "affiliate_employee_id",
+            "offer_employee_id",
+            "platform_id",
+            "goal",
+            "file_id",
+            "source",
+            "aff_sub1",
+            "aff_sub2",
+            "aff_sub3",
+            "aff_sub4",
+            "aff_sub5",
+            "sys_sub1",
+            "sys_sub2",
+            "sys_sub3",
+            "utm_medium",
+            "utm_source",
+            "utm_campaign",
+            "utm_term",
+            "utm_content",
+            "utm_referrer",
+            "click_id",
+            "browser_device",
+            "browser_app",
+            "browser_format",
+            "os",
+            "domain",
+            "search_engine",
+            "keyword",
+            "ip_addr",
+            "http_host",
+            "event_http_host",
+            "referrer",
+            "conversion_source",
+            "protocol_type"
+        ],
+        "directions": {
+            "asc": "По возрастанию",
+            "desc": "По убыванию"
+        }
+    },
+    "favorite": [
+        {
+            "title": "CR по трекинговым доменам",
+            "url": "metric=cr&groups=event_http_host,offer_id&timeZone=Europe\/Moscow&groupsBy=day&datePeriod=today&filters=%7B\"http_host\"%3A%5B\"cba106102.ru\"%2C\"pxl.leads.su\"%5D%2C\"event_http_host\"%3A%5B\"cba106102.ru\"%2C\"pxl.leads.su\"%5D%7D&conditions=%5B%5B\"period_total\"%2C\"total_clicks\"%2C\"greater_than\"%2C\"10\"%5D%5D&sort=event_http_host.asc&limit=150&offset=0"
+        }
+    ]
+}'
+     data-settings-values='{
+    "groups": [
+        "affiliate_id",
+        "offer_id"
+    ],
+    "metric": "total_conversion",
+    "dateTime": {
+        "groupsBy": "year",
+        "timeZone": "Europe\/Moscow",
+        "dateFrom": "2014-01-01",
+        "dateTo": "2017-03-31",
+        "datePeriod": "other"
+    },
+    "filters": [],
+    "pages": {
+        "limit": 30,
+        "offset": 0
+    },
+    "sortOrder": {
+        "period_dynamic": "desc"
+    },
+    "conditions": [
+        [
+            "period_total",
+            "total_clicks",
+            "greater_than_or_equal_to",
+            "0"
+        ],
+        [
+            "period_total",
+            "total_impressions",
+            "greater_than_or_equal_to",
+            "0"
+        ]
+    ]
+}'
+     data-table-url='/reports/dynamic/getData'></div>
+
+<script src="/dist/bundle.js"></script>
+</body>
+</html>
